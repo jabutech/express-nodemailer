@@ -38,6 +38,18 @@ module.exports = {
       // Register template handlebars to transporter
       transporter.use("compile", hbs(handlebarsOptions));
 
+      // Sample data array
+      let persons = [
+        {
+          name: "Rizky Darmawan",
+          age: 25,
+        },
+        {
+          name: "Dwi Aprilia",
+          age: 24,
+        },
+      ];
+
       let mailOptions = {
         // Mail host for use send mail
         from: process.env.EMAIL,
@@ -50,6 +62,7 @@ module.exports = {
         context: {
           title: "Email With Nodemailer",
           text: "Yey!, email berhasil dikirim dengan template.",
+          person: persons.map((item) => item),
         },
         // Attachement
         attachments: [

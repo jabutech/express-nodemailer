@@ -6,12 +6,28 @@
     <title>Email From Express Js</title>
 
     <style>
-      h1 { color: red; }
+      h1 { color: red; } table, th, td { border: 1px solid; }
     </style>
   </head>
   <body>
     {{! <!-- Parsing data dari controller property context --> }}
     <h1>{{title}}</h1>
     <p>{{text}}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Umur</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each person}}
+          <tr>
+            <th>{{name}}</th>
+            <th>{{age}}</th>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </body>
 </html>
