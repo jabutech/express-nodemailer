@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+let path = require("path");
 
 module.exports = {
   sendEmail: async (req, res) => {
@@ -20,6 +21,12 @@ module.exports = {
         to: process.env.EMAIL_DESTINATION,
         subject: "Email dari express js!",
         text: "Yey!, email berhasil dikirim.",
+        attachments: [
+          {
+            filename: "text1.txt", // <-- Nama file
+            path: path.join(__dirname, "../file.txt"), // Lokasi file
+          },
+        ],
       };
 
       await transporter.sendMail(mailOptions);
