@@ -17,7 +17,7 @@ module.exports = {
 
       let mailOptions = {
         from: process.env.EMAIL,
-        to: "darmawanrizky43@gmail.com",
+        to: process.env.EMAIL_DESTINATION,
         subject: "Email dari express js!",
         text: "Yey!, email berhasil dikirim.",
       };
